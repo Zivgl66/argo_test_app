@@ -1,0 +1,5 @@
+webapps:
+  - name: argo-test-app
+    dockerfile: ./Dockerfile
+    env: ./env
+    port: 8080
