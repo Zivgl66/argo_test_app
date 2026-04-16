@@ -7,7 +7,7 @@ app.get('/health', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  const bgColor = process.env.BG_COLOR || '#4a90d9';
+  const bgColor = process.env.BG_COLOR || '#2ecc71';
   res.send(`
     <!DOCTYPE html>
     <html>
