@@ -37,8 +37,8 @@ app.get('/', (req, res) => {
     <body>
       <div class="container">
         <h1>argo-test-app</h1>
-        <p>v1.0.0</p>
-        <p>Hello from argo-test-app!</p>
+        <p>v1.1.0</p>
+        <p>Hello from argo-test-app! 🚀 Webhook triggered build</p>
       </div>
     </body>
     </html>
