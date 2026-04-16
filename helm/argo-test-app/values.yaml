@@ -1,0 +1,56 @@
+replicaCount: 1
+
+image:
+  repository: 867145879963.dkr.ecr.eu-west-1.amazonaws.com/argo-test-app
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: "argo-test-app"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+env:
+  - name: PORT
+    value: "8080"
+  - name: BG_COLOR
+    value: "#4a90d9"
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 8080
+  initialDelaySeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 8080
+  initialDelaySeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+
+serviceAccount:
+  create: true
+  name: ""
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  host: ""
+  path: /
+  pathType: Prefix
